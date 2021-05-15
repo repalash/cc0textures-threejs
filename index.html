@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>cc0textures three.js</title>
+    <style type="text/css">
+      #infoText {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        pointer-events: none;
+        z-index: 20;
+        color: white;
+
+        font-family: Monospace;
+        font-size: 13px;
+        line-height: 24px;
+      }
+      #infoText > a {
+        touch-action: auto;
+        pointer-events: auto;
+        color: #ff0;
+      }
+
+
+
+      #gridContainer {
+        width: 100%;
+        height: auto;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        max-height: 400px;
+        margin-right: -16px;
+        margin-left: -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+        overflow-y: scroll;
+        scroll-behavior: auto;
+      }
+
+      .gridItem {
+        width: 50px;
+        height: 50px;
+        padding: 2px;
+        flex-basis: auto;
+        background-color: transparent;
+        background-size: cover;
+        z-index: 1;
+        border-width: 1px;
+        border-color: transparent;
+        border-style: solid;
+      }
+
+      .gridItem:hover {
+        cursor: pointer;
+        border-color: #444444;
+        border-style: solid;
+        border-width: 1px;
+      }
+
+      #canvasContainer{
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+        margin: 0px;
+        top:0px;
+        left: 0px;
+        position: absolute;
+        z-index: -10;
+      }
+
+      #searchGridContainer{
+        z-index: 1;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        background-color: #ffffff;
+        padding: 16px;
+        width: auto;
+        height: auto;
+
+        min-width: 250px;
+        max-width: 25%;
+
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.67);
+
+      }
+      #inputText{
+        width: calc(100% - 32px);
+        outline: none;
+        border: none;
+        padding: 16px;
+        box-shadow: 0 4px 8px 3px rgba(120, 110, 120, 0.2);
+        z-index: 3;
+        position: relative;
+
+        border-radius: 8px;
+        font-family: sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+
+        background: #ffffff;
+
+      }
+
+      .autocompleteItem{
+        font-family: sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        color: #555555;
+        /*text-shadow: rgba(71, 97, 206, 0.357) 0px 2px 4px;*/
+        padding: 16px;
+      }
+      .autocompleteItem:hover{
+        background: white;
+      }
+
+      .autocompleteContainer {
+        margin-top: 8px;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(7.5px);
+        -webkit-backdrop-filter: blur(7.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.67);
+
+        max-height: 320px !important;
+        overflow-y: scroll;
+        z-index: 10;
+      }
+
+      #helperText{
+        /*margin-top: 16px;*/
+        width: calc(100% - 16px);
+        padding: 8px;
+        text-align: center;
+
+        font-family: sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+
+        box-shadow: 0 8px 32px 0 rgba(100, 110, 135, 0.6);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.67);
+        z-index: 3;
+
+        color: #666666;
+
+        position: relative;
+
+      }
+    </style>
+  </head>
+  <body>
+  <div id="canvasContainer">
+
+  </div>
+  <div id="infoText">
+    <a href="https://cc0textures.com/" target="_blank" rel="noopener">cc0textures</a> PBR Material Loader for <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> <br/>
+    <a href="https://github.com/replash/cc0textures-threejs" target="_blank" rel="noopener">view source on github</a>
+  </div>
+  <div id = "searchGridContainer">
+    <input type="text" id="inputText" placeholder="Search materials" autocomplete="off" />
+    <div id="gridContainer">
+    </div>
+    <div id="helperText">
+      Pick a material
+    </div>
+  </div>
+    <script src="lib.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
