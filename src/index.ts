@@ -43,7 +43,7 @@ const pmremGenerator = new PMREMGenerator( renderer );
 pmremGenerator.compileEquirectangularShader();
 
 let cc0Loader = new CC0MaterialLoader(new LoadingManager(), materials_data);
-new RGBELoader().load("https://download.polyhaven.com/HDRIs/1k/photo_studio_01_1k.hdr", dataTexture => {
+new RGBELoader().load("https://dl.polyhaven.com/file/ph-assets/HDRIs/hdr/1k/photo_studio_01_1k.hdr", dataTexture => {
 
     let tex  = pmremGenerator.fromEquirectangular( dataTexture );
 
