@@ -15,7 +15,40 @@ import {RGBELoader} from "three/examples/jsm/loaders/RGBELoader";
 import {CC0MaterialLoader} from "./cc0_threejs_loader";
 import {Material} from "three/src/materials/Material";
 // @ts-ignore
-import materials_data from "./data/materials.Popular.0.txt";
+import materials_data from "./data/materials.Popular.1.txt";
+
+// conversion from csv to smaller csv
+// @ts-ignore
+// import materials_data2 from "./data/ambientCG_downloads_csv_03042024.txt";
+// const res = {} as any
+// const lines = materials_data2.trim().split('\n')
+// for (const line of lines) {
+//     const parts = line.split(',')
+//     if(!parts[1].endsWith('PNG') && !parts[1].endsWith('JPEG') && !parts[1].endsWith('JPG')) continue
+//     const name = parts[0]
+//     const id = /\/download\/\w+_(\w+)\//g.exec(line)
+//     // console.log(id, line)
+//     if (!res[name]) {
+//         res[name] = {}
+//         res[name].id = id[1]
+//         // res[name].name = name
+//     }
+//     if (!res[name].types) {
+//         res[name].types = []
+//     }
+//     res[name].types.push(parts[1])
+// }
+// let output = ''
+// for (const key of Object.keys(res)) {
+//     if(!res[key].id) continue;
+//     if(!res[key].types?.length) continue;
+//     output += `${key},${res[key].id},${res[key].types.join('|')}\n`
+// }
+// console.log(output)
+// console.log(res)
+
+
+
 const helperText = document.getElementById("helperText") as HTMLDivElement;
 const container = document.getElementById("canvasContainer");
 document.body.appendChild( container );
@@ -43,7 +76,7 @@ const pmremGenerator = new PMREMGenerator( renderer );
 pmremGenerator.compileEquirectangularShader();
 
 let cc0Loader = new CC0MaterialLoader(new LoadingManager(), materials_data);
-new RGBELoader().load("https://dl.polyhaven.com/file/ph-assets/HDRIs/hdr/1k/photo_studio_01_1k.hdr", dataTexture => {
+new RGBELoader().load("https://hdrhaven-proxy-1.repalash.workers.dev/file/ph-assets/HDRIs/hdr/1k/photo_studio_01_1k.hdr", dataTexture => {
 
     let tex  = pmremGenerator.fromEquirectangular( dataTexture );
 

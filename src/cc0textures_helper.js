@@ -9,7 +9,7 @@ export class CC0TexturesHelper {
         /**
          * @type {[string, string, string[]][]}
          */
-        this.materials = materials_data ? materials_data.split('\n').map(value => value.split(',')) : undefined;
+        this.materials = materials_data ? materials_data.trim().split('\n').map(value => value.split(',')) : undefined;
         if(this.materials)
             this.materials.forEach(value => value[value.length - 1] = value[value.length - 1].split('|'));
     }
@@ -28,7 +28,9 @@ export class CC0TexturesHelper {
         forms = forms.filter(value => value.toLowerCase().endsWith(i_ext));
         if (forms.length < 1) return null;
         let form = quality === 1 ? forms[0] : forms[forms.length - 1];
-        let link = 'https://cdn3.struffelproductions.com/file/CC0-Textures/download/' + name + "_" + raw_id + "/" + name + "_" + form + "." + ext;
+        // let link = 'https://cdn3.struffelproductions.com/file/CC0-Textures/download/' + name + "_" + raw_id + "/" + name + "_" + form + "." + ext;
+        // https://acg-download.struffelproductions.com/file/ambientCG-Web/download/Bricks092_gp3i5UJf/Bricks092_1K-JPG.zip
+        let link = 'https://acg-download.struffelproductions.com/file/ambientCG-Web/download/' + name + "_" + raw_id + "/" + name + "_" + form + "." + ext;
         return link;
     }
 
@@ -95,6 +97,7 @@ export class CC0TexturesHelper {
     static getMapWithName(name) {
         if (!name || typeof name !== 'string') return null;
         if (name.endsWith("_Normal")) return 'normalMap';
+        if (name.endsWith("_NormalGL")) return 'normalMap';
         else if (name.endsWith("_Displacement")) return 'displacementMap';
         else if (name.endsWith("_AmbientOcclusion")) return 'aoMap';
         else if (name.endsWith("_Roughness")) return 'roughnessMap';
@@ -107,7 +110,7 @@ export class CC0TexturesHelper {
     }
 
     static getPreviewLink(name, variant = "128-JPG-FFFFFF") {
-        return "https://cdn3.struffelproductions.com/file/CC0-Textures/media/sphere/" + variant + "/" + name + "_PREVIEW.jpg"
+        return "https://acg-media.struffelproductions.com/file/ambientCG-Web/media/thumbnail/" + variant + "/" + name + ".jpg"
     }
 
 }

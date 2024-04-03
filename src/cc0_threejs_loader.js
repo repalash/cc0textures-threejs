@@ -38,7 +38,6 @@ export class CC0MaterialLoader extends Loader {
         }
         let material = materials[0];
         let link = this.helper.resolveMaterialLink(material.name, alpha);
-        console.log(link);
         return this.load(link, onLoad, onProgress, onError);
     }
 

@@ -1,15 +1,14 @@
 {
-  "name": "rollup-ts-boilerplate",
+  "name": "cc0textures-threejs",
   "version": "1.0.0",
-  "description": "A boilerplate config for rollup with typescript.",
+  "description": "Material/Textures loader for CC0Textures/AmbientCG",
   "main": "dist/bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "rollup -c -w",
     "build": "rollup -c",
     "push-demo": "git subtree push --prefix example origin gh-pages"
   },
-  "author": "",
+  "author": "Palash Bansal <palash@shader.app>",
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19.0.0",
